@@ -1,7 +1,7 @@
 # codelijst-csor-doc
 
 - model wijzigingen = major
-- config betsanden = minor
+- config bestanden = minor
 - editoriale doc wijzigingen = minor
 - 
 # Doel: Beheer documentatie en configuratie codelijst-csor-config
