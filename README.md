@@ -2,7 +2,7 @@
 
 - model wijzigingen = major
 - config bestanden = minor
-- editoriale doc wijzigingen = minor
+- editoriale doc wijzigingen = patch
 - 
 # Doel: Beheer documentatie en configuratie codelijst-csor-config
 
