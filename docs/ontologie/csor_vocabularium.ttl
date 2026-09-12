@@ -1,0 +1,412 @@
+@prefix csor:    <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:     <http://purl.org/dc/terms/>.
+
+#################################
+### ONTOLOGY
+#################################
+
+csor:
+    a            owl:Ontology ;
+    rdfs:label   "CSOR vocabularium"@nl ;
+    rdfs:comment "Vocabularium voor concepten, parameters, aspecten, eenheden en afleidingen binnen CSOR."@nl .
+
+#################################
+### CLASSES
+#################################
+
+csor:Drager
+    a                rdfs:Class ;
+    rdfs:label       "Drager"@nl ;
+    rdfs:comment     "Een drager beschrijft het medium waarin het kenmerk geobserveerd wordt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:Eenheid
+    a                rdfs:Class ;
+    rdfs:label       "Eenheid"@nl ;
+    rdfs:comment     "Een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:Parameter
+    a                rdfs:Class ;
+    rdfs:label       "Parameter"@nl ;
+    rdfs:comment     "Een parameter specificeert een soort uitspraak over een variabele door deze te koppelen aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:ParameterAspect
+    a                rdfs:Class ;
+    rdfs:label       "ParameterAspect"@nl ;
+    rdfs:comment     "Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:ParameterAspectOmzetting
+    a                rdfs:Class ;
+    rdfs:label       "ParameterAspectOmzetting"@nl ;
+    rdfs:comment     "Definieert de omzetting tussen twee parameteraspecten."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:NatuurkundigeDimensie
+    a                rdfs:Class ;
+    rdfs:label       "NatuurkundigeDimensie"@nl ;
+    rdfs:comment     "Een natuurkundige dimensie duidt aan welke grootheid gebruikt wordt om de observatie te doen."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:KwantificeerbaarAspect
+    a                rdfs:Class ;
+    rdfs:label       "KwantificeerbaarAspect"@nl ;
+    rdfs:comment     "Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:KwalificeerbaarAspect
+    a                rdfs:Class ;
+    rdfs:label       "KwalificeerbaarAspect"@nl ;
+    rdfs:comment     "Een kwalificeerbaar aspect drukt uit dat de waarde die aan een observatie kan worden toegekend, beperkt is tot classificaties opgenomen in een elders gepubliceerde lijst."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:Variabele
+    a                rdfs:Class ;
+    rdfs:label       "Variabele"@nl ;
+    rdfs:comment     "Een variabele beschrijft waarover een observatie of uitspraak gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:SoortWaardebepaling
+    a                rdfs:Class ;
+    rdfs:label       "SoortWaardebepaling"@nl ;
+    rdfs:comment     "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:ResultaatType
+    a                rdfs:Class ;
+    rdfs:label       "ResultaatType"@nl ;
+    rdfs:comment     "Het type resultaat dat voor een parameter of observatie gebruikt wordt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf  skos:Concept .
+
+csor:OrganisatieSpecifiekeReferentie
+    a                rdfs:Class ;
+    rdfs:label       "OrganisatieSpecifiekeReferentie"@nl ;
+    rdfs:comment     "Een referentie naar een concept die specifiek is voor een bepaalde organisatie."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterAfleidingVeelterm
+    a                rdfs:Class ;
+    rdfs:label       "ParameterAfleidingVeelterm"@nl ;
+    rdfs:comment     "Een afleiding van een parameter via een veelterm."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:VeeltermParameterTerm
+    a                rdfs:Class ;
+    rdfs:label       "VeeltermParameterTerm"@nl ;
+    rdfs:comment     "Een veelterm is een optelling van meerdere termen. Niet elke term is verplicht om de optelling te mogen maken."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterTerm
+    a                rdfs:Class ;
+    rdfs:label       "ParameterTerm"@nl ;
+    rdfs:comment     "Een term binnen afleidingen van een parameter."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterAfleidingRWZIRendement
+    a                rdfs:Class ;
+    rdfs:label       "ParameterAfleidingRWZIRendement"@nl ;
+    rdfs:comment     "Een afleiding van een parameter op basis van RWZI-rendement."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterAfleidingVerhouding
+    a                rdfs:Class ;
+    rdfs:label       "ParameterAfleidingVerhouding"@nl ;
+    rdfs:comment     "Een afleiding van een parameter als verhouding tussen teller en noemer."@nl ;
+    rdfs:isDefinedBy csor: .
+
+#################################
+### PROPERTIES - GENERIEK
+#################################
+
+csor:symbool
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Symbool"@nl ;
+    rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+#################################
+### PROPERTIES - EENHEDEN / ASPECTEN / DIMENSIES
+#################################
+
+csor:toepasbareEenheid
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Toepasbare eenheid"@nl ;
+    rdfs:comment     "Eenheid die toepasbaar is voor een specifiek kwantificeerbaar aspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Eenheid .
+
+csor:heeftKwantificeerbaarAspect
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft kwantificeerbaar aspect"@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:comment "Geeft op een eenheid de kwantificeerbaar aspecten waarvoor deze eenheid toepasbaar is."@nl ;
+    rdfs:range csor:KwantificeerbaarAspect .
+
+csor:heeftNatuurkundigeDimensie
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Natuurkundige dimensie"@nl ;
+    rdfs:comment     "De link met de natuurkundige dimensie."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:NatuurkundigeDimensie .
+
+csor:conversiefactor
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Conversiefactor"@nl ;
+    rdfs:comment     "Factor waarmee gerekend kan worden om van A naar B te gaan."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:decimal .
+
+csor:referentieEenheid
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Referentie-eenheid"@nl ;
+    rdfs:comment     "De referentie-eenheid van de natuurkundige dimensie."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Eenheid .
+
+csor:uitgedruktIn
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Uitgedrukt in"@nl ;
+    rdfs:comment     "De variabele waarin het resultaat uitgedrukt wordt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Variabele .
+
+csor:kwantificeerbaarAspectType
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Kwantificeerbaar aspect type"@nl ;
+    rdfs:comment     "Mogelijke waarden, bijvoorbeeld INDIVIDUELE_OBSERVATIE of VRACHT."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:classificatielijst
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Referentie naar classificatielijst"@nl ;
+    rdfs:comment     "De referentie naar een codelijst met geldige classificatiewaarden voor dit kwalificeerbaar aspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       rdfs:Resource .
+
+#################################
+### PROPERTIES - RESULTATEN
+#################################
+
+csor:heeftResultaattype
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Resultaattype"@nl ;
+    rdfs:comment     "De link met het resultaattype."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       [ owl:unionOf ( csor:KwantificeerbaarAspect csor:KwalificeerbaarAspect ) ] .
+
+#################################
+### PROPERTIES - PARAMETER
+#################################
+
+csor:heeftVariabele
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Variabele"@nl ;
+    rdfs:comment     "De variabele waarover de parameter een uitspraak doet."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Variabele .
+
+csor:heeftSoortWaardebepaling
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Soort waardebepaling"@nl ;
+    rdfs:comment     "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:SoortWaardebepaling .
+
+csor:heeftDrager
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Drager"@nl ;
+    rdfs:comment     "De drager of context waarin de observatie gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Drager .
+
+csor:heeftAfleiding
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft afleiding"@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:saroadCode
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Saroad-code"@nl ;
+    rdfs:comment     "Saroad-code gekoppeld aan de parameter."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:cas
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "CAS-code"@nl ;
+    rdfs:comment     "CAS-code gekoppeld aan de parameter."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:eea
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "EEA-code"@nl ;
+    rdfs:comment     "EEA-code gekoppeld aan de parameter."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:iupacNaam
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "iupacNaam"@nl ;
+    rdfs:comment     "Gestandaardiseerde, unieke naam voor een chemische stof, opgesteld door de International Union of Pure and Applied Chemistry."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:inchikey
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "inchikey"@nl ;
+    rdfs:comment     "De International Chemical Identifier, afgekort InChI, is een tekstuele identificatiecode voor chemische stoffen, vooral bedoeld om moleculen ondubbelzinnig en op een voor mensen leesbare manier te coderen, waarbij het zoeken naar die stof in databanken en via het web gemakkelijker zou worden gemaakt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:eionetDD
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "eionetDD-code"@nl ;
+    rdfs:comment     "EionetDD-code gekoppeld aan de parameter."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string .
+
+csor:verkorteNotatie
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Verkorte notatie"@nl ;
+    rdfs:comment     "Samengestelde omschrijving van de variabele omschrijving en soortwaardebepaling omschrijving (zonder omschrijving van de drager)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:string ;
+    rdfs:subPropertyOf skos:altLabel .
+
+csor:heeftDoelParameter
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft doelparameter"@nl ;
+    rdfs:comment "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt (i.e de target of output parameter). Wordt in csor gebruikt op de volgende klassen: ParameterAfleidingVeelterm,  ParameterAfleidingVerhouding, ParameterAfleidingRWZIRendement en ParameterAspectOmzetting."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Parameter .
+
+csor:heeftBronParameter
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft bronparameter"@nl ;
+    rdfs:comment "Een parameter die als invoer gebruikt wordt in een afleiding, term of berekening (i.e de source of input parameter). Wordt in csor gebruikt op de volgende klassen: ParameterAfleidingVeeltermTerm en ParameterAfleidingRWZIRendement."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Parameter .
+
+#################################
+### PROPERTIES - PARAMETER ASPECT
+#################################
+
+csor:heeftParameter
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Heeft parameter"@nl ;
+    rdfs:comment     "De parameter die gekoppeld is aan dit parameteraspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Parameter .
+
+csor:geldigTot
+    a                  owl:ObjectProperty, rdf:Property ;
+    rdfs:label         "Is geldig tot"@nl ;
+    rdfs:comment       "Is geldig tot."@nl ;
+    rdfs:isDefinedBy   csor: ;
+    rdfs:range         xsd:date ;
+    rdfs:subPropertyOf dct:valid .
+
+csor:heeftAspect
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Heeft aspect"@nl ;
+    rdfs:comment     "Het aspect dat gekoppeld is aan dit parameteraspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       [ owl:unionOf ( csor:KwantificeerbaarAspect csor:KwalificeerbaarAspect ) ] .
+
+#################################
+### PROPERTIES - PARAMETER ASPECT OMZETTING
+#################################
+
+csor:heeftBronParameterAspect
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Parameteraspect van"@nl ;
+    rdfs:comment     "Het bron-parameteraspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:ParameterAspect .
+
+csor:heeftDoelParameterAspect
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Parameteraspect naar"@nl ;
+    rdfs:comment     "Het doel-parameteraspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:ParameterAspect .
+
+csor:heeftBronEenheid
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Eenheid van"@nl ;
+    rdfs:comment     "De bron-eenheid."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Eenheid .
+
+csor:heeftDoelEenheid
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Eenheid naar"@nl ;
+    rdfs:comment     "De doel-eenheid."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:Eenheid .
+
+csor:omkeerbaar
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Omkeerbaar"@nl ;
+    rdfs:comment     "Geeft aan of een omzetting tussen parameteraspecten in beide richtingen mag gebeuren."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:boolean .
+
+#################################
+### PROPERTIES - AFLEIDINGEN
+#################################
+
+csor:heeftTerm
+    a                owl:ObjectProperty, rdf:Property ;
+    rdfs:label       "Term"@nl ;
+    rdfs:comment     "Een term die deel uitmaakt van een afleiding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       csor:VeeltermParameterTerm .
+
+csor:verplicht
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "verplicht"@nl ;
+    rdfs:comment     "Duid aan welke term verplicht is in een afleiding van type VEELTERM."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:boolean .
+
+csor:factor
+    a                owl:DatatypeProperty, rdf:Property ;
+    rdfs:label       "Factor"@nl ;
+    rdfs:comment     "De factor is een multiplicatieve constante die de grootte of schaal van een de term bepaalt binnen een afleiding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range       xsd:decimal .
+
+csor:heeftTeller
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "teller"@nl ;
+    rdfs:comment "De term die de teller vormt in een parameterafleiding als verhouding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterTerm .
+
+csor:heeftNoemer
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "noemer"@nl ;
+    rdfs:comment "De term die de noemer vormt in een parameterafleiding als verhouding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterTerm .
