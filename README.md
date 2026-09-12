@@ -3,21 +3,26 @@
 - model wijzigingen = major
 - config bestanden = minor
 - editoriale doc wijzigingen = patch
-- 
-# Doel: Beheer documentatie en configuratie codelijst-csor-config
 
-- Documentatie van beheerde en gepubliceerde codelijsten in csor register
-- Configuratiebestanden voor de transformatiepipelines van het **Chemische Stoffen en Omgevingsparameters-Register (CSOR)**.
+# CSO Register: Documentatie & Configuratie
 
-## Documentatie
+Dit project bevat zowel de inhoudelijke documentatie als de technische configuratie voor het **Chemische Stoffen en Omgevingsparameters-Register (CSOR)**.
 
+## 1. Documentatie
+
+### Overzicht
 Een gedetailleerd overzicht van de codelijsten, hun onderlinge relaties en de gebruikte ontologie is te vinden in de [documentatie](docs/index.md).
 
-## Configuratie
+### Context
+CSOR is een register van de Vlaamse overheid (Departement Omgeving) dat chemische stoffen en omgevingsparameters standaardiseert voor gebruik in milieu-rapportering en -regelgeving.
 
+## 2. Configuratie
+
+### Doel
 Deze repository bevat de bronbestanden en configuratie die worden gebruikt om CSOR-codelijsten en conceptschema's te publiceren als linked data. De bestanden vormen de invoer voor transformatiepipelines die de gegevens omzetten naar RDF/SKOS en publiceren onder de Vlaamse datanaamruimte.
 
-## Structuur
+### Structuur
+De padstructuur weerspiegelt de linked-data URI-basis: `https://data.vlaanderen.be/id/conceptscheme/csor/...`
 
 ```
 src/main/resources/
@@ -25,20 +30,12 @@ src/main/resources/
     └── ...   ← configuratie- en bronbestanden per conceptschema
 ```
 
-De padstructuur weerspiegelt de linked-data URI-basis:
-`https://data.vlaanderen.be/id/conceptscheme/csor/...`
-
-## Build
-
+### Build
 Het project gebruikt Maven als bouwsysteem.
 
 ```bash
 mvn package
 ```
-
-## Context
-
-CSOR is een register van de Vlaamse overheid (Departement Omgeving) dat chemische stoffen en omgevingsparameters standaardiseert voor gebruik in milieu-rapportering en -regelgeving.
 
 ## Licentie
 
