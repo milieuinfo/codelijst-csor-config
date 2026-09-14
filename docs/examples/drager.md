@@ -18,7 +18,7 @@ Hieronder staan representatieve voorbeelden van concepten in de codelijst Drager
         skos:topConceptOf  <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/drager> .
 ```
 
-## Drager: PM10
+## Drager: Water
 
 ```turtle
 @prefix csor: <https://data.omgeving.vlaanderen.be/ns/csor#> .
@@ -26,10 +26,11 @@ Hieronder staan representatieve voorbeelden van concepten in de codelijst Drager
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<https://data.omgeving.vlaanderen.be/id/concept/csor/drager/DR_9>
+<https://data.omgeving.vlaanderen.be/id/concept/csor/drager/DR_1>
         rdf:type           skos:Concept , csor:Drager;
         owl:deprecated     false;
+        skos:definition    "Water zoals bijv, drinkwater, afvalwater, oppervlaktewater, grondwater, zeewater,..."@nl;
         skos:inScheme      <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/drager>;
-        skos:prefLabel     "PM10"@nl;
+        skos:prefLabel     "water"@nl;
         skos:topConceptOf  <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/drager> .
 ```
