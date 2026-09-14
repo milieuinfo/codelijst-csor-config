@@ -24,62 +24,62 @@
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "Variabele"@nl ;
-    rdfs:comment    "Conceptschema voor variabelen"@nl .
+    rdfs:comment    "Conceptschema voor variabelen. Een variabele beschrijft waarover een uitspraak gebeurt."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/drager>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "Drager"@nl ;
-    rdfs:comment    "Conceptschema voor dragers"@nl .
+    rdfs:comment    "Conceptschema voor dragers. Een drager beschrijft een medium waarin een variabele geobserveerd kan worden."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/soortwaardebepaling>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "SoortWaardebepaling"@nl ;
-    rdfs:comment    "Conceptschema voor soorten waardebepaling"@nl .
+    rdfs:comment    "Conceptschema voor soorten waardebepaling. Een soort waardebepaling beschrijft de wijze waarop de observatie of waardebepaling van een variabele gebeurt."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/parameter>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "Parameter"@nl ;
-    rdfs:comment    "Conceptschema voor parameters"@nl .
+    rdfs:comment    "Conceptschema voor parameters. Een parameter specificeert een soort uitspraak over een variabele."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/parameteraspect>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "ParameterAspect"@nl ;
-    rdfs:comment    "Conceptschema voor parameteraspecten"@nl .
+    rdfs:comment    "Conceptschema voor parameteraspecten. Een parameteraspect linkt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect waarin de parameter uitgedrukt/vastgelegd kan worden. "@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwantificeerbaaraspect>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "KwantificeerbaarAspect"@nl ;
-    rdfs:comment    "Conceptschema voor kwantificeerbare aspecten"@nl .
+    rdfs:comment    "Conceptschema voor kwantificeerbare aspecten. Een kwantificeerbaar aspect is een meetbaar aspect van een parameter met een numerieke waarde."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwalificeerbaaraspect>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "KwalificeerbaarAspect"@nl ;
-    rdfs:comment    "Conceptschema voor kwalificeerbare aspecten"@nl .
+    rdfs:comment    "Conceptschema voor kwalificeerbare aspecten. Een kwalificeerbaar aspect Een kwalificeerbaar aspect is een observeerbaar aspect van een parameter met een niet numerieke waarde."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/natuurkundigedimensie>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "NatuurkundigeDimensie"@nl ;
-    rdfs:comment    "Conceptschema voor natuurkundige dimensies"@nl .
+    rdfs:comment    "Conceptschema voor natuurkundige dimensies."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/eenheid>
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "Eenheid"@nl ;
-    rdfs:comment    "Conceptschema voor eenheden"@nl .
+    rdfs:comment    "Conceptschema voor eenheden. Een eenheid is een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt."@nl .
 
 # Named Collections
 <https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/chemische_stoffen>
     a               owl:NamedIndividual ;
     a               skos:Collection ;
     rdfs:label      "Chemische stoffen"@nl ;
-    rdfs:comment    "Collectie van chemische stoffen"@nl ;
+    rdfs:comment    "Collectie van chemische stoffen."@nl ;
     skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
 
 <https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/bio_indicatoren>
