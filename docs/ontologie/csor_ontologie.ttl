@@ -1,3 +1,4 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix csor:    <https://data.omgeving.vlaanderen.be/ns/csor#> .
 @prefix dc:      <http://purl.org/dc/elements/1.1/> .
 @prefix dct:     <http://purl.org/dc/terms/> .
@@ -8,16 +9,104 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
+
+
 <https://data.omgeving.vlaanderen.be/ns/csor>
     a               owl:Ontology ;
     rdfs:label      "CSOR Ontologie"@nl ;
     rdfs:comment    "Een gemeenschappelijke ontologie voor de codelijsten in het CSO-register (i.e chemische stoffen en omgevingsparameters)"@nl ;
     owl:versionInfo "0.0.1" .
 
+
+## NamedIndividuals
+# Named ConceptSchemes
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "Variabele"@nl ;
+    rdfs:comment    "Conceptschema voor variabelen"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/drager>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "Drager"@nl ;
+    rdfs:comment    "Conceptschema voor dragers"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/soortwaardebepaling>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "SoortWaardebepaling"@nl ;
+    rdfs:comment    "Conceptschema voor soorten waardebepaling"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/parameter>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "Parameter"@nl ;
+    rdfs:comment    "Conceptschema voor parameters"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/parameteraspect>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "ParameterAspect"@nl ;
+    rdfs:comment    "Conceptschema voor parameteraspecten"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwantificeerbaaraspect>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "KwantificeerbaarAspect"@nl ;
+    rdfs:comment    "Conceptschema voor kwantificeerbare aspecten"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwalificeerbaaraspect>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "KwalificeerbaarAspect"@nl ;
+    rdfs:comment    "Conceptschema voor kwalificeerbare aspecten"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/natuurkundigedimensie>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "NatuurkundigeDimensie"@nl ;
+    rdfs:comment    "Conceptschema voor natuurkundige dimensies"@nl .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/eenheid>
+    a               owl:NamedIndividual ;
+    a               skos:ConceptScheme ;
+    rdfs:label      "Eenheid"@nl ;
+    rdfs:comment    "Conceptschema voor eenheden"@nl .
+
+# Named Collections
+<https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/chemische_stoffen>
+    a               owl:NamedIndividual ;
+    a               skos:Collection ;
+    rdfs:label      "Chemische stoffen"@nl ;
+    rdfs:comment    "Collectie van chemische stoffen"@nl ;
+    skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
+
+<https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/bio_indicatoren>
+    a               owl:NamedIndividual ;
+    a               skos:Collection ;
+    rdfs:label      "Bio-indicatoren"@nl ;
+    rdfs:comment    "Collectie van bio-indicatoren"@nl ;
+    skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
+
+<https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/groepsparameters>
+    a               owl:NamedIndividual ;
+    a               skos:Collection ;
+    rdfs:label      "Groepsparameters"@nl ;
+    rdfs:comment    "Collectie van groepsparameters"@nl ;
+    skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
+
+<https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/fysische_eigenschappen>
+    a               owl:NamedIndividual ;
+    a               skos:Collection ;
+    rdfs:label      "Fysicochemische eigenschappen"@nl ;
+    rdfs:comment    "Collectie van fysicochemische eigenschappen"@nl ;
+    skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
+
 csor:Drager
     a                owl:Class ;
     rdfs:label       "Drager"@nl ;
-    rdfs:comment     "Een drager beschrijft het medium waarin het kenmerk geobserveerd wordt."@nl ;
+    rdfs:comment     "Een drager beschrijft een medium waarin een variabele geobserveerd kan worden."@nl ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
@@ -78,27 +167,27 @@ csor:Eenheid
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met de natuurkundige dimensie."@nl ;
                        owl:onProperty   csor:heeftNatuurkundigeDimensie ;
-                       owl:maxCardinality  1
+                       owl:maxCardinality  1 ## exact or max todo?
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een breder concept in een hiërarchie."@nl ;
+                       rdfs:comment     "Een EenheidAlias heeft een broader relatie naar de standaard eenheid."@nl ;
                        owl:onProperty   skos:broader ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een concept in een andere codelijst dat exact overeenkomt."@nl ;
+                       rdfs:comment     "Een exacte mapping naar overeenkomstige qudt eenheid."@nl ;
                        owl:onProperty   skos:exactMatch ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een concept in een andere codelijst dat breder is."@nl ;
+                       rdfs:comment     "Een mapping naar qudt eenheid die breder is."@nl ;
                        owl:onProperty   skos:broadMatch ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Factor waarmee gerekend kan worden om van A naar B te gaan."@nl ;
+                       rdfs:comment     "Factor waarmee gerekend kan worden voor eenheidconversies van eenzelfde kwantificeerbaar aspect."@nl ;
                        owl:onProperty   csor:conversiefactor ;
-                       owl:maxCardinality  1
+                       owl:maxCardinality  1 ## todo
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -120,7 +209,7 @@ csor:Aspect
 csor:KwalificeerbaarAspect
     a                owl:Class ;
     rdfs:label       "KwalificeerbaarAspect"@nl ;
-    rdfs:comment     "Een kwalificeerbaar aspect drukt uit dat de waarde die aan een observatie kan worden toegekend, beperkt is tot classificaties opgenomen in een elders gepubliceerde lijst."@nl ;
+    rdfs:comment     "Een kwalificeerbaar aspect is een observeerbaar aspect met een niet numerieke waarde."@nl ;
     rdfs:subClassOf  csor:Aspect ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -151,7 +240,7 @@ csor:KwalificeerbaarAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met het resultaattype."@nl ;
                        owl:onProperty   csor:heeftResultaattype ;
-                       owl:maxCardinality  1
+                       owl:minCardinality  1 ## todo
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De referentie naar een codelijst met geldige classificatiewaarden voor dit kwalificeerbaar aspect."@nl ;
@@ -172,7 +261,7 @@ csor:KwalificeerbaarAspect
 csor:KwantificeerbaarAspect
     a                owl:Class ;
     rdfs:label       "KwantificeerbaarAspect"@nl ;
-    rdfs:comment     "Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    rdfs:comment     "Een kwantificeerbaar aspect is een meetbaar aspect met een numerieke waarde. Het duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
     rdfs:subClassOf  csor:Aspect ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -203,17 +292,17 @@ csor:KwantificeerbaarAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met het resultaattype."@nl ;
                        owl:onProperty   csor:heeftResultaattype ;
-                       owl:maxCardinality  1
+                       owl:minCardinality  1 ## todo
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Mogelijke waarden, bijvoorbeeld INDIVIDUELE_OBSERVATIE of VRACHT."@nl ;
                        owl:onProperty   csor:kwantificeerbaarAspectType ;
-                       owl:maxCardinality  1
+                       owl:maxCardinality  1 ## todo
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met de natuurkundige dimensie."@nl ;
                        owl:onProperty   csor:heeftNatuurkundigeDimensie ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -228,15 +317,15 @@ csor:KwantificeerbaarAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De variabele waarin het resultaat uitgedrukt wordt."@nl ;
                        owl:onProperty   csor:uitgedruktIn ;
-                       owl:maxCardinality  1
+                       owl:minCardinality  0 ## todo
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een concept in een andere codelijst dat breder is."@nl ;
+                       rdfs:comment     "Een exacte mapping naar overeenkomstige qudt grooheid."@nl ;
                        owl:onProperty   skos:broadMatch ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een concept in een andere codelijst dat exact overeenkomt."@nl ;
+                       rdfs:comment     "Een exacte mapping naar qudt grooheid dat breder is."@nl ;
                        owl:onProperty   skos:exactMatch ;
                        owl:maxCardinality  1
                      ] .
@@ -299,7 +388,7 @@ csor:NatuurkundigeDimensie
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De referentie-eenheid van de natuurkundige dimensie."@nl ;
                        owl:onProperty   csor:referentieEenheid ;
-                       owl:maxCardinality  1
+                       owl:maxCardinality  1 ## todo
                      ] .
 
 csor:Parameter
@@ -310,12 +399,12 @@ csor:Parameter
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
                        owl:onProperty   skos:inScheme ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De variabele waarover de parameter een uitspraak doet."@nl ;
@@ -405,12 +494,12 @@ csor:ParameterAfleidingRWZIRendement
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
                        owl:onProperty   csor:heeftDoelParameter ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter die als invoer gebruikt wordt."@nl ;
                        owl:onProperty   csor:heeftBronParameter ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] .
 
 csor:ParameterAfleidingVerhouding
@@ -420,19 +509,19 @@ csor:ParameterAfleidingVerhouding
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
                        owl:onProperty   csor:heeftDoelParameter ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De teller in de verhouding."@nl ;
                        owl:onProperty   csor:heeftTeller ;
                        owl:allValuesFrom csor:ParameterTerm ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De noemer in de verhouding."@nl ;
                        owl:onProperty   csor:heeftNoemer ;
                        owl:allValuesFrom csor:ParameterTerm ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] .
 
 csor:ParameterAspect
@@ -523,16 +612,21 @@ csor:ParameterTerm
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter die als invoer gebruikt wordt."@nl ;
                        owl:onProperty   csor:heeftBronParameter ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Geeft aan of de term verplicht is."@nl ;
-                       owl:onProperty   csor:verplicht ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De factor waarmee de parameter vermenigvuldigd wordt."@nl ;
                        owl:onProperty   csor:factor ;
+                       owl:cardinality  1
+                     ] .
+
+csor:VeeltermParameterTerm
+    a                owl:Class ;
+    rdfs:label       "VeeltermParameterTerm"@nl ;
+    rdfs:subClassOf  csor:ParameterTerm ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Geeft aan of de term verplicht is."@nl ;
+                       owl:onProperty   csor:verplicht ;
                        owl:maxCardinality  1
                      ] .
 
@@ -553,7 +647,7 @@ csor:OrganisatieSpecifiekeReferentie
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Referentie naar een concept."@nl ;
                        owl:onProperty   dct:references ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Type van de referentie."@nl ;
@@ -659,7 +753,7 @@ csor:Variabele
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Referentie naar PubChem Compound."@nl ;
-                       owl:onProperty   <https://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound> ;
+                       owl:onProperty   <https://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound> ; ## todo
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -680,35 +774,5 @@ csor:Variabele
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Is geldig tot."@nl ;
                        owl:onProperty   csor:geldigTot ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Referentie naar een concept."@nl ;
-                       owl:onProperty   dct:references ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Type van de referentie."@nl ;
-                       owl:onProperty   dc:type ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Categorie van de referentie."@nl ;
-                       owl:onProperty   dc:subject ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De waarde van de referentie."@nl ;
-                       owl:onProperty   prov:value ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Maker (OVO-code)."@nl ;
-                       owl:onProperty   dc:creator ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Maker (OVO-code IRI)."@nl ;
-                       owl:onProperty   dct:creator ;
                        owl:maxCardinality  1
                      ] .
