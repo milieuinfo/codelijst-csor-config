@@ -200,17 +200,17 @@ csor:Eenheid
                        owl:maxCardinality  1
                      ] .
 
-csor:Aspect
+_:Aspect
     a                owl:Class ;
     rdfs:label       "Aspect"@nl ;
-    rdfs:comment     "Een abstracte superklasse voor zowel kwalificeerbare als kwantificeerbare aspecten."@nl ;
+    rdfs:comment     "Een anonieme abstracte superklasse voor zowel kwalificeerbare als kwantificeerbare aspecten."@nl ;
     rdfs:subClassOf  skos:Concept .
 
 csor:KwalificeerbaarAspect
     a                owl:Class ;
     rdfs:label       "KwalificeerbaarAspect"@nl ;
     rdfs:comment     "Een kwalificeerbaar aspect is een observeerbaar aspect van een parameter met een niet numerieke waarde."@nl ;
-    rdfs:subClassOf  csor:Aspect ;
+    rdfs:subClassOf  _:Aspect ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
@@ -262,7 +262,7 @@ csor:KwantificeerbaarAspect
     a                owl:Class ;
     rdfs:label       "KwantificeerbaarAspect"@nl ;
     rdfs:comment     "Een kwantificeerbaar aspect is een meetbaar aspect van een parameter met een numerieke waarde. Het duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
-    rdfs:subClassOf  csor:Aspect ;
+    rdfs:subClassOf  _:Aspect ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
