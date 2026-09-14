@@ -1,6 +1,9 @@
 # Parameter
 
-Een parameter specificeert een soort uitspraak over een variabele door deze te koppelen aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling).
+Een parameter specificeert een soort uitspraak over een variabele.
+Het koppelt een variabele aan een medium waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (het soort waardebepaling).
+
+Een parameter beschrijft meer specifiek waarover een uitspraak wordt gedaan d.m.v extra context en constraints.
 
 ## Overzicht diagram
 

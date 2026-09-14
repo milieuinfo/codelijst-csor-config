@@ -1,6 +1,6 @@
 # Soort Waardebepaling
 
-De wijze waarop de observatie of waardebepaling gebeurt.
+Beschrijft een wijze waarop de observatie of waardebepaling van een variabele gebeurt.
 
 ## Overzicht diagram
 

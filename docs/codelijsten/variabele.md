@@ -1,6 +1,7 @@
 # Variabele
 
-Een variabele beschrijft waarover een observatie of uitspraak gebeurt.
+Een variabele beschrijft waarover een uitspraak gebeurt.
+Een variabele is een kenmerk dat geobserveerd kan worden, los van de context waarin de obeservatie gebeurt, hoe de observatie gebeurt of hoe de waarde van de observatie wordt vastgelegd.
 
 ## Overzicht diagram
 

@@ -1,6 +1,6 @@
 # Drager
 
-Een drager beschrijft het medium waarin het kenmerk geobserveerd wordt.
+Een drager beschrijft een medium waarin een variabele geobserveerd kan worden.
 
 ## Overzicht diagram
 

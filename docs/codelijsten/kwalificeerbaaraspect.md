@@ -1,6 +1,6 @@
 # Kwalificeerbaar Aspect
 
-Een kwalificeerbaar aspect drukt uit dat de waarde die aan een observatie kan worden toegekend, beperkt is tot classificaties opgenomen in een elders gepubliceerde lijst.
+Een kwalificeerbaar aspect is een observeerbaar aspect van een parameter met een niet numerieke waarde.
 
 ## Overzicht diagram
 

@@ -1,6 +1,7 @@
 # Kwantificeerbaar Aspect
 
-Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie.
+Een kwantificeerbaar aspect is een meetbaar aspect van een parameter met een numerieke waarde.
+Het duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie.
 
 ## Overzicht diagram
 

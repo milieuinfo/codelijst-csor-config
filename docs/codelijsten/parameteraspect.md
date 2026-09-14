@@ -1,6 +1,7 @@
 # ParameterAspect
 
-Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect.
+Een parameteraspect linkt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect waarin de parameter uitgedrukt/vastgelegd kan worden.
+Het linkt een parameter aan een observeerbaar aspect waarin de waarde van de parameter kan vastgelegd worden.
 
 ## Overzicht diagram
 
