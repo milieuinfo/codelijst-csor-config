@@ -6,7 +6,7 @@ Deze documentatie biedt een overzicht van de codelijsten die gezamenlijk worden 
 
 ## Gebruikte prefixen (namespaces)
 
-Onderstaande tabel geeft een overzicht van de gebruikte prefixen en hun bijbehorende namespaces, zoals gedefinieerd in de projectcontext:
+Onderstaande tabel geeft een overzicht van de gebruikte prefixen en hun bijbehorende namespaces, zoals gebruikt in de documentatie:
 
 | Prefix | Namespace URI |
 | :--- | :--- |
