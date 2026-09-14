@@ -12,6 +12,8 @@ classDiagram
         +skos:definition definition [0..1]
         +csor:heeftParameter parameter [1..1]
         +csor:heeftAspect aspect [1..1]
+        +skos:inScheme inScheme [1..1]
+        +skos:topConceptOf topConceptOf [1..1]
         +owl:deprecated deprecated [0..1]
         +csor:geldigTot geldigTot [0..1]
     }

@@ -19,6 +19,7 @@ classDiagram
         +csor:inchikey inchikey [0..1]
         +pubchem:compound pubChemCompound [0..1]
         +skos:inScheme inScheme [1..1]
+        +skos:broader broader [0..n]
         +skos:topConceptOf topConceptOf [0..1]
         +owl:deprecated deprecated [0..1]
         +csor:geldigTot geldigTot [0..1]

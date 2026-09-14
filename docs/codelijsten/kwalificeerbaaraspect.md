@@ -9,12 +9,12 @@ classDiagram
     class KwalificeerbaarAspect {
         +skos:prefLabel prefLabel [1..1]
         +skos:definition definition [0..1]
-        +skos:notation notation [0..1]
-        +csor:symbool symbool [0..1]
-        +csor:heeftResultaattype resultaattype [0..1]
+        +skos:notation notation [1..1]
+        +csor:symbool symbool [1..1]
+        +csor:heeftResultaattype resultaattype [1..n]
         +csor:classificatielijst classificatielijst [0..1]
         +skos:inScheme inScheme [1..1]
-        +skos:topConceptOf topConceptOf [0..1]
+        +skos:topConceptOf topConceptOf [1..1]
         +owl:deprecated deprecated [0..1]
         +csor:geldigTot geldigTot [0..1]
     }

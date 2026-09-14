@@ -9,9 +9,9 @@ classDiagram
     class Eenheid {
         +skos:prefLabel prefLabel [1..1]
         +skos:definition definition [0..1]
-        +skos:notation notation [0..1]
-        +csor:symbool symbool [0..1]
-        +csor:heeftNatuurkundigeDimensie natuurkundigeDimensie [0..1]
+        +skos:notation notation [1..1]
+        +csor:symbool symbool [1..1]
+        +csor:heeftNatuurkundigeDimensie natuurkundigeDimensie [1..1]
         +csor:conversiefactor conversiefactor [0..1]
         +skos:broader broader [0..1]
         +skos:inScheme inScheme [1..1]

@@ -126,6 +126,16 @@ csor:Drager
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+                       owl:onProperty   skos:broader ;
+                       owl:minCardinality  0
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                      rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                      owl:onProperty   skos:topConceptOf ;
+                      owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
                        owl:onProperty   owl:deprecated ;
                        owl:maxCardinality  1
@@ -174,6 +184,11 @@ csor:Eenheid
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een EenheidAlias heeft een broader relatie naar de standaard eenheid."@nl ;
                        owl:onProperty   skos:broader ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                       owl:onProperty   skos:topConceptOf ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -239,6 +254,15 @@ csor:KwalificeerbaarAspect
                        owl:onProperty   csor:symbool ;
                        owl:maxCardinality  1
                      ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                           owl:onProperty   skos:topConceptOf ;
+                           owl:cardinality  1
+                     ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met het resultaattype."@nl ;
                        owl:onProperty   csor:heeftResultaattype ;
@@ -290,6 +314,15 @@ csor:KwantificeerbaarAspect
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
                        owl:maxCardinality  1
+                     ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                           owl:onProperty   skos:topConceptOf ;
+                           owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met het resultaattype."@nl ;
@@ -372,6 +405,15 @@ csor:NatuurkundigeDimensie
                        owl:onProperty   skos:notation ;
                        owl:maxCardinality  1
                      ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                           owl:onProperty   skos:topConceptOf ;
+                           owl:cardinality  1
+                     ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een concept in een andere codelijst dat exact overeenkomt."@nl ;
                        owl:onProperty   skos:exactMatch ;
@@ -433,6 +475,15 @@ csor:Parameter
                        rdfs:comment     "Een toelichting bij het concept."@nl ;
                        owl:onProperty   skos:scopeNote ;
                        owl:maxCardinality  1
+                     ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                       owl:onProperty   skos:topConceptOf ;
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een opmerking bij het concept."@nl ;
@@ -556,6 +607,15 @@ csor:ParameterAspect
                        rdfs:comment     "Het aspect dat gekoppeld is aan dit parameteraspect."@nl ;
                        owl:onProperty   csor:heeftAspect ;
                        owl:cardinality  1
+                     ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                           owl:onProperty   skos:topConceptOf ;
+                           owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -698,6 +758,15 @@ csor:SoortWaardebepaling
                        owl:onProperty   csor:symbool ;
                        owl:maxCardinality  1
                      ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                           owl:onProperty   skos:topConceptOf ;
+                           owl:cardinality  1
+                     ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
                        owl:onProperty   owl:deprecated ;
@@ -767,6 +836,17 @@ csor:Variabele
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+                       owl:onProperty   skos:broader ;
+                       owl:minCardinality  0
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                       owl:onProperty   skos:topConceptOf ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
