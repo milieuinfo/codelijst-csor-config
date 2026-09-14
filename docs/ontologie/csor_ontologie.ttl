@@ -209,7 +209,7 @@ csor:Aspect
 csor:KwalificeerbaarAspect
     a                owl:Class ;
     rdfs:label       "KwalificeerbaarAspect"@nl ;
-    rdfs:comment     "Een kwalificeerbaar aspect is een observeerbaar aspect met een niet numerieke waarde."@nl ;
+    rdfs:comment     "Een kwalificeerbaar aspect is een observeerbaar aspect van een parameter met een niet numerieke waarde."@nl ;
     rdfs:subClassOf  csor:Aspect ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -261,7 +261,7 @@ csor:KwalificeerbaarAspect
 csor:KwantificeerbaarAspect
     a                owl:Class ;
     rdfs:label       "KwantificeerbaarAspect"@nl ;
-    rdfs:comment     "Een kwantificeerbaar aspect is een meetbaar aspect met een numerieke waarde. Het duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    rdfs:comment     "Een kwantificeerbaar aspect is een meetbaar aspect van een parameter met een numerieke waarde. Het duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
     rdfs:subClassOf  csor:Aspect ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -395,6 +395,7 @@ csor:Parameter
     a                owl:Class ;
     rdfs:label       "Parameter"@nl ;
     rdfs:comment     "Een parameter specificeert een soort uitspraak over een variabele door deze te koppelen aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling)."@nl ;
+    rdfs:comment     "Een parameter beschrijft meer specifiek waarover een uitspraak wordt gedaan d.m.v. extra context en constraints."@nl ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
@@ -527,7 +528,7 @@ csor:ParameterAfleidingVerhouding
 csor:ParameterAspect
     a                owl:Class ;
     rdfs:label       "ParameterAspect"@nl ;
-    rdfs:comment     "Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect."@nl ;
+    rdfs:comment     "Een parameteraspect linkt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect waarin de parameter uitgedrukt/vastgelegd kan worden. Het linkt de parameter aan een observeerbaar aspect waarin de waarde van de parameter kan vastgelegd worden."@nl ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
@@ -608,7 +609,7 @@ csor:ParameterAspectOmzetting
 csor:ParameterTerm
     a                owl:Class ;
     rdfs:label       "ParameterTerm"@nl ;
-    rdfs:comment     "Een term binnen afleidingen van een parameter."@nl ;
+    rdfs:comment     "Een term binnen afleidingen van een parameter bestaande uit een factor en een parameter."@nl ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter die als invoer gebruikt wordt."@nl ;
                        owl:onProperty   csor:heeftBronParameter ;
@@ -662,7 +663,7 @@ csor:OrganisatieSpecifiekeReferentie
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De waarde van de referentie."@nl ;
                        owl:onProperty   prov:value ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] .
 
 csor:SoortWaardebepaling
@@ -709,7 +710,7 @@ csor:SoortWaardebepaling
 csor:Variabele
     a                owl:Class ;
     rdfs:label       "Variabele"@nl ;
-    rdfs:comment     "Een variabele beschrijft waarover een observatie of uitspraak gebeurt."@nl ;
+    rdfs:comment     "Beschrijft waarover een uitspraak gebeurt. Een variabele is een kenmerk dat geobserveerd kan worden, los van de context waarin de obeservatie gebeurt, hoe de observatie gebeurt of hoe de waarde van de observatie wordt vastgelegd."@nl ;
     rdfs:subClassOf  skos:Concept ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
