@@ -11,8 +11,8 @@
 <https://data.omgeving.vlaanderen.be/ns/csor>
     a               owl:Ontology ;
     rdfs:label      "CSOR Ontologie"@nl ;
-    rdfs:comment    "Een gemeenschappelijke ontologie voor de codelijsten in de CSO-omgeving."@nl ;
-    owl:versionInfo "1.0.0" .
+    rdfs:comment    "Een gemeenschappelijke ontologie voor de codelijsten in het CSO-register (i.e chemische stoffen en omgevingsparameters)"@nl ;
+    owl:versionInfo "0.0.1" .
 
 csor:Drager
     a                owl:Class ;

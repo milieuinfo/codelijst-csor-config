@@ -77,15 +77,24 @@ Dit is een overzicht van de codelijsten die gezamenlijk beheerd worden in het cs
 
 | Codelijst | Beschrijving | URI | Status |
 | :--- | :--- | :--- | :--- |
-| [Variabele](codelijsten/variabele.md) | Beschrijft waarover een observatie of uitspraak gebeurt. |  | Gedocumenteerd |
-| [Drager](codelijsten/drager.md) | Beschrijft het medium waarin het kenmerk geobserveerd wordt. |  | Gedocumenteerd |
-| [Soortwaardebepaling](codelijsten/soortwaardebepaling.md) | De wijze waarop de observatie of waardebepaling gebeurt. |  | Gedocumenteerd |
-| [Parameter](codelijsten/parameter.md) | Koppelingspunt tussen variabele, drager en soortwaardebepaling. |  | Gedocumenteerd |
-| [Parameter Aspect](codelijsten/parameteraspect.md) | Koppelingspunt tussen parameter en aspect. |  | Gedocumenteerd |
-| [Kwantificeerbaar Aspect](codelijsten/kwantificeerbaaraspect.md) | Interpretatie van numerieke waarden van metingen. |  | Gedocumenteerd |
-| [Kwalificeerbaar Aspect](codelijsten/kwalificeerbaaraspect.md) | Classificaties voor observaties. |  | Gedocumenteerd |
-| [Natuurkundige Dimensie](codelijsten/natuurkundigedimensie.md) | De grootheid die gebruikt wordt voor de observatie. |  | Gedocumenteerd |
-| [Eenheid](codelijsten/eenheid.md) | Maat waarin een dimensie wordt uitgedrukt. |  | Gedocumenteerd |
+| [Variabele](codelijsten/variabele.md) | Beschrijft waarover een uitspraak gebeurt. Een variabele is een kenmerk dat geobserveerd kan worden, los van de context waarin de obeservatie gebeurt, hoe de observatie gebeurt of hoe de waarde van de observatie wordt vastgelegd. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele | Gedocumenteerd |
+| [Drager](codelijsten/drager.md) | Beschrijft het medium waarin de variabele geobserveerd wordt. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/drager | Gedocumenteerd |
+| [Soortwaardebepaling](codelijsten/soortwaardebepaling.md) | Beschrijft de wijze waarop de observatie of waardebepaling van de variabele gebeurt. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/soortwaardebepaling | Gedocumenteerd |
+| [Parameter](codelijsten/parameter.md) | Een parameter specificeert een soort uitspraak over een variabele. Het koppelt de variabele aan een context (i.e drager) en de wijze waarop de waardebepaling gebeurt (i.e soortwaardebepaling). Een parameter specificeert m.a.w. waarover een uitspraak wordt gedaan en voorziet daarbij extra context en constraints. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/parameter | Gedocumenteerd |
+| [Parameter Aspect](codelijsten/parameteraspect.md) | Linkt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect waarin de parameter uitgedrukt/vastgelegd kan worden. Een meetbaar/observeerbaar aspect waarin de waarde van de parameter kan vastgelegd worden. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/parameteraspect | Gedocumenteerd |
+| [Kwantificeerbaar Aspect](codelijsten/kwantificeerbaaraspect.md) | Een kwantificeerbaar aspect dat gemeten/geobserveerd kan worden. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwantificeerbaaraspect | Gedocumenteerd |
+| [Kwalificeerbaar Aspect](codelijsten/kwalificeerbaaraspect.md) | Een kwalificeerbaar aspect dat gemeten/geobserveerd kan worden. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwalificeerbaaraspect | Gedocumenteerd |
+| [Natuurkundige Dimensie](codelijsten/natuurkundigedimensie.md) |  | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/natuurkundigedimensie | Gedocumenteerd |
+| [Eenheid](codelijsten/eenheid.md) | Een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt. | https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/eenheid | Gedocumenteerd |
+
+Binnen de lijst van Variabelen worden er een aantal groeperingen beheerd.
+
+| Collectie | Beschrijving | URI | Status |
+| :--- | :--- | :--- | :--- |
+| [Chemische stof](codelijsten/variabele.md) |  | https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/chemische_stoffen | Gedocumenteerd |
+| [Goepsparameter](codelijsten/variabele.md) |  | https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/bio_indicatoren | Gedocumenteerd |
+| [Bioindicator](codelijsten/variabele.md) |  | https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/groepsparameters | Gedocumenteerd |
+| [Fysicochemische eigenschap](codelijsten/variabele.md) |  | https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/fysische_eigenschappen | Gedocumenteerd |
 
 ## Gemeenschappelijke Ontologie
 
