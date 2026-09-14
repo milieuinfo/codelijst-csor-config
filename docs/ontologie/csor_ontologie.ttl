@@ -103,6 +103,8 @@
     rdfs:comment    "Collectie van fysicochemische eigenschappen"@nl ;
     skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
 
+## Klassen en restricties
+
 csor:Drager
     a                owl:Class ;
     rdfs:label       "Drager"@nl ;
