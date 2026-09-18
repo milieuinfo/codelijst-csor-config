@@ -48,7 +48,7 @@
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "ParameterAspect"@nl ;
-    rdfs:comment    "Conceptschema voor parameteraspecten. Een parameteraspect linkt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect waarin de parameter uitgedrukt/vastgelegd kan worden. "@nl .
+    rdfs:comment    "Conceptschema voor parameteraspecten. Een parameteraspect linkt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect waarin de parameter uitgedrukt en vastgelegd kan worden."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/kwantificeerbaaraspect>
     a               owl:NamedIndividual ;
@@ -60,7 +60,7 @@
     a               owl:NamedIndividual ;
     a               skos:ConceptScheme ;
     rdfs:label      "KwalificeerbaarAspect"@nl ;
-    rdfs:comment    "Conceptschema voor kwalificeerbare aspecten. Een kwalificeerbaar aspect Een kwalificeerbaar aspect is een observeerbaar aspect van een parameter met een niet numerieke waarde."@nl .
+    rdfs:comment    "Conceptschema voor kwalificeerbare aspecten. Een kwalificeerbaar aspect is een observeerbaar aspect van een parameter met een niet numerieke waarde."@nl .
 
 <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/natuurkundigedimensie>
     a               owl:NamedIndividual ;
@@ -86,21 +86,21 @@
     a               owl:NamedIndividual ;
     a               skos:Collection ;
     rdfs:label      "Bio-indicatoren"@nl ;
-    rdfs:comment    "Collectie van bio-indicatoren"@nl ;
+    rdfs:comment    "Collectie van bio-indicatoren."@nl ;
     skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
 
 <https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/groepsparameters>
     a               owl:NamedIndividual ;
     a               skos:Collection ;
     rdfs:label      "Groepsparameters"@nl ;
-    rdfs:comment    "Collectie van groepsparameters"@nl ;
+    rdfs:comment    "Collectie van groepsparameters."@nl ;
     skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
 
 <https://data.omgeving.vlaanderen.be/id/collection/csor/variabele/fysische_eigenschappen>
     a               owl:NamedIndividual ;
     a               skos:Collection ;
     rdfs:label      "Fysicochemische eigenschappen"@nl ;
-    rdfs:comment    "Collectie van fysicochemische eigenschappen"@nl ;
+    rdfs:comment    "Collectie van fysicochemische eigenschappen."@nl ;
     skos:inScheme   <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/variabele> .
 
 ## Klassen en restricties
@@ -118,22 +118,23 @@ csor:Drager
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
-                       owl:onProperty   skos:broader ;
-                       owl:minCardinality  0
-                     ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:minCardinality  0
+#                     ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                       rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
                       owl:onProperty   skos:topConceptOf ;
-                      owl:maxCardinality  1
+                      owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -159,52 +160,58 @@ csor:Eenheid
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
                        owl:onProperty   skos:notation ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met de natuurkundige dimensie."@nl ;
                        owl:onProperty   csor:heeftNatuurkundigeDimensie ;
-                       owl:maxCardinality  1 ## exact or max todo?
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een EenheidAlias heeft een broader relatie naar de standaard eenheid."@nl ;
                        owl:onProperty   skos:broader ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
                        owl:onProperty   skos:topConceptOf ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een exacte mapping naar overeenkomstige qudt eenheid."@nl ;
                        owl:onProperty   skos:exactMatch ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een mapping naar qudt eenheid die breder is."@nl ;
                        owl:onProperty   skos:broadMatch ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Factor waarmee gerekend kan worden voor eenheidconversies van eenzelfde kwantificeerbaar aspect."@nl ;
+                       rdfs:comment     "Factor waarmee gerekend kan worden voor conversies naar eenheden van eenzelfde kwantificeerbaar aspect."@nl ;
                        owl:onProperty   csor:conversiefactor ;
-                       owl:maxCardinality  1 ## todo
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -220,8 +227,7 @@ csor:Eenheid
 _:Aspect
     a                owl:Class ;
     rdfs:label       "Aspect"@nl ;
-    rdfs:comment     "Een anonieme abstracte superklasse voor zowel kwalificeerbare als kwantificeerbare aspecten."@nl ;
-    rdfs:subClassOf  skos:Concept .
+    rdfs:comment     "Een anonieme abstracte superklasse voor zowel kwalificeerbare als kwantificeerbare aspecten."@nl .
 
 csor:KwalificeerbaarAspect
     a                owl:Class ;
@@ -237,40 +243,42 @@ csor:KwalificeerbaarAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
                        owl:onProperty   skos:notation ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
 #    rdfs:subClassOf  [ a                owl:Restriction ;
 #                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
 #                       owl:onProperty   skos:broader ;
 #                       owl:maxCardinality  1
     rdfs:subClassOf  [ a                owl:Restriction ;
-                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
-                           owl:onProperty   skos:topConceptOf ;
-                           owl:cardinality  1
+                       rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                       owl:onProperty   skos:topConceptOf ;
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De link met het resultaattype."@nl ;
+                       rdfs:comment     "Een resultaattype van het aspect."@nl ;
                        owl:onProperty   csor:heeftResultaattype ;
-                       owl:minCardinality  1 ## todo
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De referentie naar een codelijst met geldige classificatiewaarden voor dit kwalificeerbaar aspect."@nl ;
                        owl:onProperty   csor:classificatielijst ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -298,22 +306,23 @@ csor:KwantificeerbaarAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
                        owl:onProperty   skos:notation ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
 #    rdfs:subClassOf  [ a                owl:Restriction ;
 #                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
@@ -325,19 +334,42 @@ csor:KwantificeerbaarAspect
                            owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De link met het resultaattype."@nl ;
+                       rdfs:comment     "Een resultaattype van het aspect."@nl ;
                        owl:onProperty   csor:heeftResultaattype ;
-                       owl:minCardinality  1 ## todo
+                       owl:cardinality  1 ## todo kan dit niet meer dan 1 zijn?
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Mogelijke waarden, bijvoorbeeld INDIVIDUELE_OBSERVATIE of VRACHT."@nl ;
                        owl:onProperty   csor:kwantificeerbaarAspectType ;
-                       owl:maxCardinality  1 ## todo
+                       owl:cardinality  1 ## todo  betekenis?
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De link met de natuurkundige dimensie."@nl ;
                        owl:onProperty   csor:heeftNatuurkundigeDimensie ;
                        owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een eenheid waarin een waarde kan uitgedrukt worden."@nl ;
+                       owl:onProperty   csor:toepasbareEenheid ;
+                       owl:minCardinality  0
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een variabele waarin het resultaat uitgedrukt wordt."@nl ;
+                       owl:onProperty   csor:uitgedruktIn ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een exacte mapping naar overeenkomstige qudt grooheid."@nl ;
+                       owl:onProperty   skos:broadMatch ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een exacte mapping naar qudt grooheid dat breder is."@nl ;
+                       owl:onProperty   skos:exactMatch ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -347,21 +379,6 @@ csor:KwantificeerbaarAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Is geldig tot."@nl ;
                        owl:onProperty   csor:geldigTot ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De variabele waarin het resultaat uitgedrukt wordt."@nl ;
-                       owl:onProperty   csor:uitgedruktIn ;
-                       owl:minCardinality  0 ## todo
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een exacte mapping naar overeenkomstige qudt grooheid."@nl ;
-                       owl:onProperty   skos:broadMatch ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een exacte mapping naar qudt grooheid dat breder is."@nl ;
-                       owl:onProperty   skos:exactMatch ;
                        owl:maxCardinality  1
                      ] .
 
@@ -378,102 +395,28 @@ csor:NatuurkundigeDimensie
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een alternatieve naam van het concept."@nl ;
+                       owl:onProperty   skos:altLabel ;
+                       owl:minCardinality  0
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
-                       owl:onProperty   csor:symbool ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een toelichting bij het concept."@nl ;
-                       owl:onProperty   skos:scopeNote ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een opmerking bij het concept."@nl ;
-                       owl:onProperty   skos:note ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
                        owl:onProperty   skos:notation ;
-                       owl:maxCardinality  1
-                     ] ;
-#    rdfs:subClassOf  [ a                owl:Restriction ;
-#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
-#                       owl:onProperty   skos:broader ;
-#                       owl:maxCardinality  1
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
-                           owl:onProperty   skos:topConceptOf ;
-                           owl:cardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een concept in een andere codelijst dat exact overeenkomt."@nl ;
-                       owl:onProperty   skos:exactMatch ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
-                       owl:onProperty   owl:deprecated ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Is geldig tot."@nl ;
-                       owl:onProperty   csor:geldigTot ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De referentie-eenheid van de natuurkundige dimensie."@nl ;
-                       owl:onProperty   csor:referentieEenheid ;
-                       owl:maxCardinality  1 ## todo
-                     ] .
-
-csor:Parameter
-    a                owl:Class ;
-    rdfs:label       "Parameter"@nl ;
-    rdfs:comment     "Een parameter specificeert een soort uitspraak over een variabele door deze te koppelen aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling)."@nl ;
-    rdfs:comment     "Een parameter beschrijft meer specifiek waarover een uitspraak wordt gedaan d.m.v. extra context en constraints."@nl ;
-    rdfs:subClassOf  skos:Concept ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
-                       owl:onProperty   skos:inScheme ;
                        owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
-                       owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De variabele waarover de parameter een uitspraak doet."@nl ;
-                       owl:onProperty   csor:heeftVariabele ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De drager of context waarin de observatie gebeurt."@nl ;
-                       owl:onProperty   csor:heeftDrager ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
-                       owl:onProperty   csor:heeftSoortWaardebepaling ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
-                       owl:onProperty   skos:definition ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een toelichting bij het concept."@nl ;
-                       owl:onProperty   skos:scopeNote ;
+                       rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
+                       owl:onProperty   csor:symbool ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
 #    rdfs:subClassOf  [ a                owl:Restriction ;
@@ -486,8 +429,14 @@ csor:Parameter
                        owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Een opmerking bij het concept."@nl ;
-                       owl:onProperty   skos:note ;
+                       rdfs:comment     "De referentie-eenheid van de natuurkundige dimensie."@nl ;
+                       owl:onProperty   csor:referentieEenheid ;
+                       owl:cardinality 1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een exacte mapping naar overeenkomstige qudt dimensievector."@nl ;
+                       owl:onProperty   skos:exactMatch ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -499,46 +448,144 @@ csor:Parameter
                        rdfs:comment     "Is geldig tot."@nl ;
                        owl:onProperty   csor:geldigTot ;
                        owl:maxCardinality  1
+                     ] .
+
+csor:Parameter
+    a                owl:Class ;
+    rdfs:label       "Parameter"@nl ;
+    rdfs:comment     "Een parameter specificeert een soort uitspraak over een variabele en koppelt deze aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling)."@nl ;
+    rdfs:comment     "Een parameter beschrijft meer specifiek waarover een uitspraak wordt gedaan d.m.v. extra context en constraints."@nl ;
+    rdfs:subClassOf  skos:Concept ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De codelijst waartoe het concept behoort."@nl ;
+                       owl:onProperty   skos:inScheme ;
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Saroad-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:saroadCode ;
-                       owl:maxCardinality  1
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:prefLabel ;
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "CAS-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:cas ;
-                       owl:maxCardinality  1
+                       rdfs:comment     "Een alternatieve naam van het concept."@nl ;
+                       owl:onProperty   skos:altLabel ;
+                       owl:minCardinality  0
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "EEA-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:eea ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "EionetDD-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:eionetDD ;
+                       rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
+                       owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Samengestelde omschrijving van de variabele omschrijving en soortwaardebepaling omschrijving (zonder omschrijving van de drager)."@nl ;
                        owl:onProperty   csor:verkorteNotatie ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
-                     ] .
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
+                       owl:onProperty   skos:notation ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
+                       owl:onProperty   csor:symbool ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De variabele waarover de parameter een uitspraak doet."@nl ;
+                       owl:onProperty   csor:heeftVariabele ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De drager of context waarin de observatie gebeurt."@nl ;
+                       owl:onProperty   csor:heeftDrager ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+                       owl:onProperty   csor:heeftSoortWaardebepaling ;
+                       owl:cardinality  1
+                     ] ;
+#    rdfs:subClassOf  [ a                owl:Restriction ;
+#                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
+#                       owl:onProperty   skos:broader ;
+#                       owl:maxCardinality  1
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                   owl:onProperty   skos:topConceptOf ;
+                   owl:cardinality  1
+                 ] ;
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "Saroad-code gekoppeld aan de parameter."@nl ;
+                   owl:onProperty   csor:saroadCode ;
+                   owl:minCardinality  0 ;
+                   owl:maxCardinality  1
+                 ] ;
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "CAS-code gekoppeld aan de parameter."@nl ;
+                   owl:onProperty   csor:cas ;
+                   owl:minCardinality  0 ;
+                   owl:maxCardinality  1
+                 ] ;
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "EEA-code gekoppeld aan de parameter."@nl ;
+                   owl:onProperty   csor:eea ;
+                   owl:minCardinality  0 ;
+                   owl:maxCardinality  1
+                 ] ;
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "EionetDD-code gekoppeld aan de parameter."@nl ;
+                   owl:onProperty   csor:eionetDD ;
+                   owl:minCardinality  0 ;
+                   owl:maxCardinality  1
+                 ] ;
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
+                   owl:onProperty   owl:deprecated ;
+                   owl:maxCardinality  1
+                 ] ;
+rdfs:subClassOf  [ a                owl:Restriction ;
+                   rdfs:comment     "Is geldig tot."@nl ;
+                   owl:onProperty   csor:geldigTot ;
+                   owl:maxCardinality  1
+                 ] .
 
 csor:ParameterAfleidingVeelterm
     a                owl:Class ;
     rdfs:label       "ParameterAfleidingVeelterm"@nl ;
     rdfs:comment     "Een afleiding van een parameter via een veelterm."@nl ;
     rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:prefLabel ;
+                       owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
+                       owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
                        owl:onProperty   csor:heeftDoelParameter ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een term binnen de veelterm afleiding."@nl ;
                        owl:onProperty   csor:heeftTerm ;
                        owl:minCardinality 1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
+                       owl:onProperty   owl:deprecated ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Is geldig tot."@nl ;
+                       owl:onProperty   csor:geldigTot ;
+                       owl:maxCardinality  1
                      ] .
 
 csor:ParameterAfleidingRWZIRendement
@@ -546,20 +593,52 @@ csor:ParameterAfleidingRWZIRendement
     rdfs:label       "ParameterAfleidingRWZIRendement"@nl ;
     rdfs:comment     "Een afleiding van een parameter op basis van RWZI-rendement."@nl ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
-                       owl:onProperty   csor:heeftDoelParameter ;
-                       owl:cardinality  1
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:prefLabel ;
+                       owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
+                       owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter die als invoer gebruikt wordt."@nl ;
                        owl:onProperty   csor:heeftBronParameter ;
                        owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
+                       owl:onProperty   csor:heeftDoelParameter ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
+                       owl:onProperty   owl:deprecated ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Is geldig tot."@nl ;
+                       owl:onProperty   csor:geldigTot ;
+                       owl:maxCardinality  1
                      ] .
 
 csor:ParameterAfleidingVerhouding
     a                owl:Class ;
     rdfs:label       "ParameterAfleidingVerhouding"@nl ;
     rdfs:comment     "Een afleiding van een parameter als verhouding tussen teller en noemer."@nl ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:prefLabel ;
+                       owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
+                       owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
                        owl:onProperty   csor:heeftDoelParameter ;
@@ -576,6 +655,41 @@ csor:ParameterAfleidingVerhouding
                        owl:onProperty   csor:heeftNoemer ;
                        owl:allValuesFrom csor:ParameterTerm ;
                        owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
+                       owl:onProperty   owl:deprecated ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Is geldig tot."@nl ;
+                       owl:onProperty   csor:geldigTot ;
+                       owl:maxCardinality  1
+                     ] .
+
+csor:ParameterTerm
+    a                owl:Class ;
+    rdfs:label       "ParameterTerm"@nl ;
+    rdfs:comment     "Een term binnen afleidingen van een parameter bestaande uit een factor en een parameter."@nl ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De parameter die als invoer gebruikt wordt."@nl ;
+                       owl:onProperty   csor:heeftBronParameter ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De factor waarmee de parameter vermenigvuldigd wordt."@nl ;
+                       owl:onProperty   csor:factor ;
+                       owl:cardinality  1
+                     ] .
+
+csor:VeeltermParameterTerm
+    a                owl:Class ;
+    rdfs:label       "VeeltermParameterTerm"@nl ;
+    rdfs:subClassOf  csor:ParameterTerm ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Geeft aan of de term verplicht is."@nl ;
+                       owl:onProperty   csor:verplicht ;
+                       owl:cardinality  1
                      ] .
 
 csor:ParameterAspect
@@ -591,11 +705,17 @@ csor:ParameterAspect
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:altLabel ;
+                       owl:minCardinality  0
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -633,63 +753,59 @@ csor:ParameterAspectOmzetting
     rdfs:label       "ParameterAspectOmzetting"@nl ;
     rdfs:comment     "Definieert de omzetting tussen twee parameteraspecten."@nl ;
     rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:prefLabel ;
+                       owl:minCardinality  0 ## todo !!!
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
+                       owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt."@nl ;
                        owl:onProperty   csor:heeftDoelParameter ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Het bron-parameteraspect."@nl ;
                        owl:onProperty   csor:heeftBronParameterAspect ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De bron-eenheid."@nl ;
                        owl:onProperty   csor:heeftBronEenheid ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Het doel-parameteraspect."@nl ;
                        owl:onProperty   csor:heeftDoelParameterAspect ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De doel-eenheid."@nl ;
                        owl:onProperty   csor:heeftDoelEenheid ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Factor waarmee gerekend kan worden om van A naar B te gaan."@nl ;
                        owl:onProperty   csor:conversiefactor ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of een omzetting tussen parameteraspecten in beide richtingen mag gebeuren."@nl ;
                        owl:onProperty   csor:omkeerbaar ;
-                       owl:maxCardinality  1
-                     ] .
-
-csor:ParameterTerm
-    a                owl:Class ;
-    rdfs:label       "ParameterTerm"@nl ;
-    rdfs:comment     "Een term binnen afleidingen van een parameter bestaande uit een factor en een parameter."@nl ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De parameter die als invoer gebruikt wordt."@nl ;
-                       owl:onProperty   csor:heeftBronParameter ;
                        owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De factor waarmee de parameter vermenigvuldigd wordt."@nl ;
-                       owl:onProperty   csor:factor ;
-                       owl:cardinality  1
-                     ] .
-
-csor:VeeltermParameterTerm
-    a                owl:Class ;
-    rdfs:label       "VeeltermParameterTerm"@nl ;
-    rdfs:subClassOf  csor:ParameterTerm ;
+                       rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
+                       owl:onProperty   owl:deprecated ;
+                       owl:maxCardinality  1
+                     ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Geeft aan of de term verplicht is."@nl ;
-                       owl:onProperty   csor:verplicht ;
+                       rdfs:comment     "Is geldig tot."@nl ;
+                       owl:onProperty   csor:geldigTot ;
                        owl:maxCardinality  1
                      ] .
 
@@ -698,14 +814,19 @@ csor:OrganisatieSpecifiekeReferentie
     rdfs:label       "OrganisatieSpecifiekeReferentie"@nl ;
     rdfs:comment     "Een referentie naar een concept die specifiek is voor een bepaalde organisatie."@nl ;
     rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                       owl:onProperty   skos:prefLabel ;
+                       owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Maker (OVO-code)."@nl ;
                        owl:onProperty   dc:creator ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Maker (OVO-code IRI)."@nl ;
                        owl:onProperty   dct:creator ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Referentie naar een concept."@nl ;
@@ -715,12 +836,12 @@ csor:OrganisatieSpecifiekeReferentie
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Type van de referentie."@nl ;
                        owl:onProperty   dc:type ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Categorie van de referentie."@nl ;
                        owl:onProperty   dc:subject ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De waarde van de referentie."@nl ;
@@ -741,31 +862,32 @@ csor:SoortWaardebepaling
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
                        owl:onProperty   skos:notation ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
 #    rdfs:subClassOf  [ a                owl:Restriction ;
 #                       rdfs:comment     "Een broader concept in het conceptschema."@nl ;
 #                       owl:onProperty   skos:broader ;
 #                       owl:maxCardinality  1
     rdfs:subClassOf  [ a                owl:Restriction ;
-                           rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
-                           owl:onProperty   skos:topConceptOf ;
-                           owl:cardinality  1
+                       rdfs:comment     "De codelijst waarvan het concept een topconcept is."@nl ;
+                       owl:onProperty   skos:topConceptOf ;
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Geeft aan of het concept verouderd is."@nl ;
@@ -791,51 +913,58 @@ csor:Variabele
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "De voorkeursnaam van het concept."@nl ;
                        owl:onProperty   skos:prefLabel ;
-                       owl:cardinality  1
+                       owl:minCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een beschrijving van de betekenis van het concept."@nl ;
                        owl:onProperty   skos:definition ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "CAS-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:cas ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "EEA-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:eea ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "EionetDD-code gekoppeld aan de parameter."@nl ;
-                       owl:onProperty   csor:eionetDD ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Gestandaardiseerde, unieke naam voor een chemische stof, opgesteld door de International Union of Pure and Applied Chemistry."@nl ;
-                       owl:onProperty   csor:iupacNaam ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "De International Chemical Identifier, afgekort InChI, is een tekstuele identificatiecode voor chemische stoffen..."@nl ;
-                       owl:onProperty   csor:inchikey ;
-                       owl:maxCardinality  1
-                     ] ;
-    rdfs:subClassOf  [ a                owl:Restriction ;
-                       rdfs:comment     "Referentie naar PubChem Compound."@nl ;
-                       owl:onProperty   <https://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound> ; ## todo
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Een unieke code voor het concept binnen de codelijst."@nl ;
                        owl:onProperty   skos:notation ;
-                       owl:maxCardinality  1
+                       owl:cardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
                        rdfs:comment     "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
                        owl:onProperty   csor:symbool ;
+                       owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "CAS-code gekoppeld aan de parameter."@nl ;
+                       owl:onProperty   csor:cas ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "EEA-code gekoppeld aan de parameter."@nl ;
+                       owl:onProperty   csor:eea ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "EionetDD-code gekoppeld aan de parameter."@nl ;
+                       owl:onProperty   csor:eionetDD ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Gestandaardiseerde, unieke naam voor een chemische stof, opgesteld door de International Union of Pure and Applied Chemistry."@nl ;
+                       owl:onProperty   csor:iupacNaam ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "De International Chemical Identifier, afgekort InChI, is een tekstuele identificatiecode voor chemische stoffen..."@nl ;
+                       owl:onProperty   csor:inchikey ;
+                       owl:minCardinality  0 ;
+                       owl:maxCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                       rdfs:comment     "Referentie naar PubChem Compound."@nl ;
+                       owl:onProperty   <https://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound> ; ## todo
+                       owl:minCardinality  0 ;
                        owl:maxCardinality  1
                      ] ;
     rdfs:subClassOf  [ a                owl:Restriction ;
@@ -858,4 +987,44 @@ csor:Variabele
                        rdfs:comment     "Is geldig tot."@nl ;
                        owl:onProperty   csor:geldigTot ;
                        owl:maxCardinality  1
+                     ] .
+
+csor:OrganisatieSpecifiekeReferentie
+    a                owl:Class ;
+    rdfs:label       "OrganisatieSpecifiekeReferentie"@nl ;
+    rdfs:comment     "Een referentie naar een concept die specifiek is voor een bepaalde organisatie."@nl ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De voorkeursnaam van het concept."@nl ;
+                           owl:onProperty   skos:prefLabel ;
+                           owl:minCardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "Maker (OVO-code)."@nl ;
+                           owl:onProperty   dc:creator ;
+                           owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "Maker (OVO-code IRI)."@nl ;
+                           owl:onProperty   dct:creator ;
+                           owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "Referentie naar een concept."@nl ;
+                           owl:onProperty   dct:references ;
+                           owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "Type van de referentie."@nl ;
+                           owl:onProperty   dc:type ;
+                           owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "Categorie van de referentie."@nl ;
+                           owl:onProperty   dc:subject ;
+                           owl:cardinality  1
+                     ] ;
+    rdfs:subClassOf  [ a                owl:Restriction ;
+                           rdfs:comment     "De waarde van de referentie."@nl ;
+                           owl:onProperty   prov:value ;
+                           owl:cardinality  1
                      ] .
